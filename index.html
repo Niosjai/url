@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choose Your Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            background: #121212;
+            color: #f5f5f5;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
         .button-container {
             display: flex;
@@ -21,58 +32,57 @@
         .redirect-button {
             padding: 15px 30px;
             font-size: 1.2em;
-            background-color: #007bff;
-            color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         .redirect-button:hover {
-            background-color: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .portfolio-btn {
+            background: linear-gradient(45deg, #ff9800, #ff5722);
+            color: white;
+        }
+        .portfolio-btn:hover {
+            background: linear-gradient(45deg, #e68900, #e64a19);
+        }
+        .auroraflix-btn {
+            background: linear-gradient(45deg, #03a9f4, #0288d1);
+            color: white;
+        }
+        .auroraflix-btn:hover {
+            background: linear-gradient(45deg, #0288d1, #0277bd);
         }
         .message {
-            margin-bottom: 30px;
-            font-size: 1.5em;
-            color: #333;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
     </style>
     <script>
-        // Handle path-based redirects
-        const currentPath = window.location.pathname;
-        
-        if (currentPath === '/portfolio') {
-            window.location.replace("https://jaiiiiiiiportfolio.vercel.app/");
-        } else if (currentPath === '/auroraflix') {
-            window.location.replace("https://auroraflix.onrender.com/");
-        }
-
-        // Handle button clicks
+        document.addEventListener("DOMContentLoaded", function () {
+            const path = window.location.pathname;
+            if (path === '/portfolio') {
+                window.location.replace("https://jaiiiiiiiportfolio.vercel.app/");
+            } else if (path === '/auroraflix') {
+                window.location.replace("https://auroraflix.onrender.com/");
+            }
+        });
         function redirectTo(url) {
-            window.location.replace(url);
+            window.location.href = url;
         }
     </script>
 </head>
 <body>
-    <div class="message">Where would you like to go?</div>
-    <div class="button-container">
-        <button 
-            class="redirect-button"
-            onclick="redirectTo('https://jaiiiiiiiportfolio.vercel.app/')"
-        >
-            Portfolio
-        </button>
-        <button 
-            class="redirect-button"
-            onclick="redirectTo('https://auroraflix.onrender.com/')"
-        >
-            AuroraFlix
-        </button>
+    <div class="container">
+        <div class="message">Where would you like to go?</div>
+        <div class="button-container">
+            <button class="btn redirect-button portfolio-btn" onclick="redirectTo('https://jaiiiiiiiportfolio.vercel.app/')">Portfolio</button>
+            <button class="btn redirect-button auroraflix-btn" onclick="redirectTo('https://auroraflix.onrender.com/')">AuroraFlix</button>
+        </div>
     </div>
-    <p style="margin-top: 30px; color: #666;">
-        Or visit directly:
-        <a href="https://jaiiiiiiiportfolio.vercel.app/">Portfolio</a> | 
-        <a href="https://auroraflix.onrender.com/">AuroraFlix</a>
-    </p>
 </body>
 </html>
